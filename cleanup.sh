@@ -26,5 +26,5 @@ do
     fi
 done
 
-dd if=/dev/zero of=/EMPTY bs=1M
-rm -rf /EMPTY
+dd if=/dev/zero of=/empty bs=1M
+rm -rf /empty
