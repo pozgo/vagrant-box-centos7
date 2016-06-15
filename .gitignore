@@ -1,1 +1,3 @@
 .vagrant/
+centos7.box
+packer_cache/
