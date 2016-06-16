@@ -6,6 +6,12 @@ This repository is building CentOS 7 base image with some packages already insta
 To build image run:  
 `packer build packer.json`
 
+#### Build only one provider (virtualbox or parallels)
+Available options are:  
+  - parallels-iso  
+  - virtualbox-iso  
+
+`packer build -only=parallels-iso packer.json`
 
 #### Push
 To push to atlas:  
