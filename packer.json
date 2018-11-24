@@ -2,7 +2,7 @@
   "builders": [
     {
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `ks_path`}}<enter><wait>"
+        "<up><wait><tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `ks_path`}}<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": "{{user `disk_size`}}",
@@ -10,11 +10,11 @@
       "guest_os_type": "RedHat_64",
       "hard_drive_interface": "sata",
       "headless": "{{ user `headless` }}",
-      "http_directory": ".",
+      "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_url": "{{user `mirror`}}/{{user `mirror_directory`}}/{{user `iso_name`}}",
-      "output_directory": "packer-{{user `template`}}-virtualbox",
+      "output_directory": "../builds/packer-{{user `template`}}-virtualbox",
       "shutdown_command": "echo 'vagrant' | sudo -S /sbin/halt -h -p",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -40,16 +40,16 @@
     },
     {
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `ks_path`}}<enter><wait>"
+        "<up><wait><tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `ks_path`}}<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": "{{user `disk_size`}}",
       "guest_os_type": "centos",
-      "http_directory": ".",
+      "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_url": "{{user `mirror`}}/{{user `mirror_directory`}}/{{user `iso_name`}}",
-      "output_directory": "packer-{{user `template`}}-parallels",
+      "output_directory": "../builds/packer-{{user `template`}}-parallels",
       "parallels_tools_flavor": "lin",
       "prlctl": [
         [
@@ -108,25 +108,25 @@
     }
   ],
   "variables": {
-    "box_basename": "centos-7.2",
+    "box_basename": "centos-7.5",
     "build_timestamp": "{{isotime \"20060102150405\"}}",
     "cpus": "1",
     "memory": "2048",
-    "disk_size": "40960",
+    "disk_size": "65536",
     "git_revision": "__unknown_git_revision__",
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "iso_checksum": "9ed9ffb5d89ab8cca834afce354daa70a21dcb410f58287d6316259ff89758f5",
+    "iso_checksum": "937bf0a7b0932817f84f7230f15ed88911bbbd85c0c958680792b7f8d8f9c1a9",
     "iso_checksum_type": "sha256",
-    "iso_name": "CentOS-7-x86_64-NetInstall-1511.iso",
+    "iso_name": "CentOS-7-x86_64-NetInstall-1804.iso",
     "ks_path": "ks.cfg",
     "metadata": "floppy/dummy_metadata.json",
     "mirror": "http://anorien.csc.warwick.ac.uk",
-    "mirror_directory": "mirrors/centos/7.2.1511/isos/x86_64",
-    "name": "centos-7.2",
+    "mirror_directory": "mirrors/centos/7.5.1804/isos/x86_64",
+    "name": "centos-7.5",
     "no_proxy": "{{env `no_proxy`}}",
-    "template": "centos-7.2-x86_64",
-    "version": "2.1.TIMESTAMP"
+    "template": "centos-7.5-x86_64",
+    "version": "TIMESTAMP"
   }
 }
